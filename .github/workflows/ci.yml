@@ -1,13 +1,17 @@
-name: Simple CI
+name: CI with tests
 
 on:
   push:
     branches: [ "main" ]
 
 jobs:
-  print_message:
+  test:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Print message on push
-        run: echo "Push detected! CI is working."
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Run tests with docker compose
+        run: docker compose run --rm tests
+
