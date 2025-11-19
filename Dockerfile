@@ -4,5 +4,6 @@ WORKDIR /app
 COPY . .
 RUN pip install PyMySQL
 RUN pip install -r requirements.txt
+RUN pip install pytest
 RUN pip install --upgrade 'SQLAlchemy<1.4'
 CMD ["python", "app.py"]
